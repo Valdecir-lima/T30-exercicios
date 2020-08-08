@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array</title>
+
+    <script>
+      var pessoas = [
+        { nome: "Jão da silva", sexo: "m", idade: 17 },
+        { nome: "Maria da silva", sexo: "f", idade: 15 },
+        { nome: "Zé de Souza", sexo: "m", idade: 50 },
+        { nome: "Adriana de Souza", sexo: "f", idade: 40 },
+      ];
+
+      var todas = pessoas.filter(function (p) {
+        return p;
+      });
+
+      //Mulheres
+
+      var mulheres = pessoas.filter(function (p) {
+        if (p.sexo == "f") return p;
+      });
+      //Homens
+      var homens = pessoas.filter(function (p) {
+        if (p.sexo == "m") return p;
+      });
+
+      //Maior de 18 anos
+      var maiores = pessoas.filter(function (p) {
+        if (p.idade >= 18) return p;
+      });
+
+      //Menores de 18 anos
+      var menores = pessoas.filter(function (p) {
+        if (p.idade < 18) return p;
+      });
+      //Por nome ou sobrenome  "Silva"   "Souza"
+
+      function buscar(busca) {
+        var filtro = pessoas.filter(function (p) {
+          if (p.nome.toUpperCase().indexOf(busca.toUpperCase().trim()) != -1) {
+            return p;
+          }
+        });
+        return filtro;
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

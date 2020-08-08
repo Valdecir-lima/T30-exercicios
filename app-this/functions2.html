@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      class ExibirMensagem {
+        constructor() {
+          console.log(this);
+        }
+        alerta() {
+          console.log("Fora do Foreach: " + this);
+          let arr = ["Bom dia", "Boa tarde", "Boa Noite"];
+          //workaround
+          let self = this;
+
+          arr.forEach(function (m) {
+            console.log("Dentro do forEach com self: " + self);
+            console.log(m);
+          });
+
+          // arr.forEach((m) => {
+          //   console.log("Dentro do forEach: " + this);
+          //   console.log(m);
+          // });
+        }
+      }
+
+      let e1 = new ExibirMensagem();
+      e1.alerta();
+    </script>
+  </head>
+  <body>
+    <!-- <button onclick="exibirMensagem()">OK</button> -->
+  </body>
+</html>

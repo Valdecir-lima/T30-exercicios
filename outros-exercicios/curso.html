@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Cliente</title>
+
+    <script>
+      //#1 Domain (Modelo)
+      class Curso {
+        constructor(titulo, descricao, idProfessor, cargaHoraria) {
+          this.titulo = titulo;
+          this.descricao = descricao;
+          this.idProfessor = idProfessor;
+          this.cargaHoraria = cargaHoraria;
+        }
+      }
+
+      class Professor {
+        constructor(nome, id) {
+          this.id = id;
+          this.nome = nome;
+        }
+      }
+
+      //#2.1 Logic - Regra de negocio
+      class GerenciadorCurso {
+        constructor() {
+          this.cursos = [];
+        }
+
+        adicionar(curso) {
+          this.cursos.push(curso);
+        }
+
+        imprimirCursos() {
+          for (let i = 0; i < this.cursos.length; i++) {
+            console.log(this.cursos[i]);
+          }
+        }
+      }
+
+      //#2.1 Logic
+      class GerenciadorProfessor {
+        constructor() {
+          this.professores = [];
+
+          //Iniciando com alguns cadastrados
+          this.adicionar(new Professor("Virmerson", 10));
+          this.adicionar(new Professor("Alison", 101));
+          this.adicionar(new Professor("Vinicius", 23));
+          this.adicionar(new Professor("Zé", 50));
+        }
+        adicionar(professor) {
+          this.professores.push(professor);
+        }
+
+        imprimirCursos() {
+          for (let i = 0; i < this.professores.length; i++) {
+            console.log(this.cursos[i]);
+          }
+        }
+      }
+
+      //#3 Controller
+
+      class CursoController {
+        constructor() {
+          //instancia do Gerenciador
+          this.gerenciadorCurso = new GerenciadorCurso();
+          this.gerenciadorProfessor = new GerenciadorProfessor();
+          this.carregarListaProfessores();
+        }
+        aoClicarSalvar() {
+          //Ler os dados dos inputs
+          let titulo = document.getElementById("titulo").value;
+          let descricao = document.getElementById("descricao").value;
+          let cargaHoraria = document.getElementById("cargaHoraria").value;
+          let idProf = document.getElementById("lista-profs").value;
+
+          //instancia os objetos
+          let curso = new Curso(titulo, descricao, idProf, cargaHoraria);
+
+          //invoca o metodo para adicionar
+          this.gerenciadorCurso.adicionar(curso);
+        }
+
+        aoClicarNoListarCursos() {
+          let arr = this.gerenciadorCurso.cursos;
+          let divLista = document.getElementById("lista-curso");
+          divLista.innerHTML = "";
+          for (let i = 0; i < arr.length; i++) {
+            divLista.innerHTML += arr[i].titulo + " => " + arr[i].idProfessor;
+          }
+        }
+
+        carregarListaProfessores() {
+          let arr = this.gerenciadorProfessor.professores;
+
+          let divLista = document.getElementById("lista-profs");
+          divLista.innerHTML = "";
+          for (let i = 0; i < arr.length; i++) {
+            divLista.innerHTML += ` <option value='${arr[i].id}'> ${arr[i].nome}</option>`;
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <select id="lista-profs"> </select>
+    <input type="text" placeholder="titulo" id="titulo" />
+    <input type="text" placeholder="descricao" id="descricao" />
+    <input type="number" placeholder="carga Horaria" id="cargaHoraria" />
+
+    <div id="lista-curso"></div>
+
+    <button onclick="cursoController.aoClicarSalvar()">Salvar</button>
+    <button onclick="cursoController.aoClicarNoListarCursos()">
+      Listar Cursos
+    </button>
+  </body>
+
+  <script>
+    //# 5 Instaciar o controller
+    const cursoController = new CursoController();
+  </script>
+</html>

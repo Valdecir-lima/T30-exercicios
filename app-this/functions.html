@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      //   function ExibirMensagem() {
+      //     console.dir(this);
+      //   }
+      // let f1 = new ExibirMensagem();
+
+      class ExibirMensagem {
+        // constructor() {
+        //   //Aloca na memoria o objecto
+        //   //Identifica a posicao
+        //   //Nomeia essa posicao como this
+        //   return this;
+        // }
+        constructor() {
+          console.dir(this);
+        }
+        alerta() {
+          console.dir(this);
+          window.alert("oi");
+        }
+      }
+
+      let e1 = new ExibirMensagem();
+      e1.alerta();
+    </script>
+  </head>
+  <body>
+    <!-- <button onclick="exibirMensagem()">OK</button> -->
+  </body>
+</html>

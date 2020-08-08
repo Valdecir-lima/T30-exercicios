@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>maior menor</title>
+    <script>
+    class MaiorMenor{
+        constructor(n1, n2){
+            this.n1=n1;
+            this.n2=n2; 
+        }
+        verifica(){
+        
+            if (this.n1>this.n2){
+                this.maior=this.n1
+                this.menor=this.n2
+            }else {
+                this.maior=this.n2
+                this.menor=this.n1
+            }
+        }
+
+        saoIguais(){
+           return this.n1==this.n2 
+        }
+    }
+
+    function clique(intencao){
+          //Leitura da tela
+            let n1 = document.getElementById("n1").value
+            let n2 = document.getElementById("n2").value
+           //Instancia do Obejeto
+            let maiorMenor = new MaiorMenor(n1,n2)
+            
+            //Impressao
+            if (maiorMenor.saoIguais()){
+              console.log("São Iguais")  
+            }else {
+                maiorMenor.verifica()
+                if(intencao==1){
+                    console.log(maiorMenor.maior)
+                }else {
+                    console.log(maiorMenor.menor)
+                }
+            }
+    }
+    
+    </script>
+</head>
+<body>
+    <input placeholder="n1" id="n1">
+    <input placeholder="n2" id="n2">
+    <button onclick="clique(1)">Maior</button>
+    <button onclick="clique(0)">Menor</button>
+</body>
+</html>

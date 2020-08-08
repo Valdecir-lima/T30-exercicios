@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      function divisao(n1, n2) {
+        return new Promise((resolve, rejected) => {
+          setTimeout(() => {
+            let s = n1 / n2;
+            if (n2 != 0) {
+              //demora uns 5 segundos
+              resolve(s);
+            } else rejected("não pode dividir por zero");
+          }, 5000);
+        });
+      }
+
+      function quadrado(n) {
+        return new Promise((resolve, rejected) => {
+          setTimeout(() => {
+            let q = n * n;
+            resolve(q);
+          }, 3000);
+        });
+      }
+
+      function div(n1, n2) {
+        divisao(n1, n2)
+          .then((res) => {
+            console.log("Divisão:" + res);
+
+            quadrado(n1).then((res) => {
+              console.log("Quadrado do n1: " + res);
+
+              quadrado(n2).then((res) => {
+                console.log("Quadrado do n2: " + res);
+              });
+            });
+          })
+          .catch((r) => console.log(r));
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

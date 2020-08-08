@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Store</title>
+
+    <script>
+      let arr = [];
+      //tem coisa armazenada?
+      if (localStorage.getItem("clientes") != null) {
+        //carrego o array
+        arr = JSON.parse(localStorage.getItem("clientes"));
+      }
+      function salvar() {
+        let novoCli = { nome: document.querySelector("input").value };
+        arr.push(novoCli);
+        localStorage.setItem("clientes", JSON.stringify(arr));
+      }
+    </script>
+  </head>
+  <body>
+    <input id="nome" placeholder="Nome do Cliente" />
+    <button onclick="salvar()">Salvar</button>
+    <a href="lista-clientes.html"> Ver Lista</a>
+  </body>
+</html>

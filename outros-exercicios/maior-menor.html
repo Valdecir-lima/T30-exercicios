@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maior Menor</title>
+    <script>
+      var maiorIdade = 0;
+      function adicionar() {
+        //1)Leitura dos campos
+        let nome = document.getElementById("nome").value;
+        let idade = parseInt(document.getElementById("idade").value);
+
+        //  30> 60
+        if (idade > maiorIdade) {
+          maiorIdade = idade;
+        }
+
+        //maiorIdade = 60
+
+        document.getElementById("lbl-maior").innerText = maiorIdade;
+      }
+    </script>
+  </head>
+  <body>
+    <input type="text" placeholder="Nome" id="nome" />
+    <input type="number" placeholder="Idade" id="idade" />
+    <button onclick="adicionar()">Adicionar</button>
+    <label> Maior: </label>
+    <label id="lbl-maior"></label>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Cliente</title>
+
+    <script>
+      //   class GerenciadorClientes {
+      //     constructor() {
+      //       this.clientes = [];
+      //     }
+      //   }
+
+      //i += 1    =>   i=i+1   => i++
+      //   for (let i = 1; i <= 10; i++) {
+      //     console.log("oi " + i);
+      //     //1 //4 //7 //10 //13
+      //   }
+
+      //   let arrFrutas = ["banana", "maçã", "Pera", "Melancia", "Melão"];
+
+      //   for (let i = 0; i < arrFrutas.length; i++) {
+      //     console.log(arrFrutas[i]);
+      //   }
+
+      //   console.log(arrFrutas[0]);
+      //   console.log(arrFrutas[1]);
+      //   console.log(arrFrutas[2]);
+      //   console.log(arrFrutas[3]);
+      //   console.log(arrFrutas[4]);
+
+      //cá
+
+      //   let arrCursos = [
+      //     { titulo: "Java", descricao: "Curso destinado a devs..." },
+      //     { titulo: "JavaScript", descricao: "Aprendar Fazer APP com JS" },
+      //     { titulo: "NodeJS", descricao: "Construção de APIS com JS" },
+      //   ];
+
+      class Curso {
+        constructor(titulo, descricao) {
+          this.titulo = titulo;
+          this.descricao = descricao;
+        }
+      }
+
+      let arrCursos = [
+        new Curso("Java", "Curso destinado a devs..."),
+        new Curso("JS", "Aprendar Fazer APP com JS"),
+      ];
+
+      arrCursos[2] = new Curso("PWA", "Aprende Progressive Web App");
+      arrCursos.push(new Curso("NodeJS", "Construção de APIS com JS"));
+
+      let cursosX = new Curso("Curso X", "Desc curso x");
+      arrCursos.push(cursosX);
+
+      for (let i = 0; i < arrCursos.length; i++) {
+        console.log(arrCursos[i].titulo + "/" + arrCursos[i].descricao);
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

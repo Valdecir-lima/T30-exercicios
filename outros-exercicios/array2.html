@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array</title>
+
+    <script>
+      var numbers = [10, 11, 15, 20, 21, 23, 30, 35, 40, 47, 50];
+
+      var todos = numbers.filter(function (v) {
+        return v;
+      });
+
+      var pares = numbers.filter(function (v) {
+        if (v % 2 == 0) return v;
+      });
+
+      var impares = numbers.filter(function (v) {
+        if (v % 2 != 0) return v;
+      });
+    </script>
+  </head>
+  <body></body>
+</html>

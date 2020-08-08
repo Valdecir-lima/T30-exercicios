@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=
+    , initial-scale=1.0"
+    />
+    <title>Call Back</title>
+  </head>
+  <body></body>
+
+  <script>
+    var calculadora = {
+      somar: function (n1, n2, c) {
+        let som = n1 + n2;
+        c(som); //callBack
+      },
+      subtrair: function (n1, n2, c) {
+        let sub = n1 - n2;
+        c(sub); //callBack
+      },
+    };
+
+    calculadora.somar(10, 40, function (r) {
+      window.alert(r);
+    });
+    calculadora.subtrair(10, 40, function (r) {
+      console.log(r);
+    });
+
+    calculadora.somar(10, 40, function (r) {
+      document.body.innerHTML = r;
+    });
+  </script>
+</html>

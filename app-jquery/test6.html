@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aprendendo Jquery</title>
+
+    <script>
+      function mouseSobre() {
+        document.querySelector("button").style =
+          " background-color: #ff0000; cursor: pointer";
+      }
+
+      function mouseFora() {
+        document.querySelector("button").style = " background-color: #0000ff;";
+      }
+    </script>
+
+    <style>
+      .botaoAzul {
+        background-color: #0000ff;
+      }
+      .botaoVerde {
+        background-color: #00ff00;
+      }
+      .textoBranco {
+        color: #ffffff;
+      }
+      .textoAmarelo {
+        color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <button
+      class="botaoAzul textoBranco"
+      onmouseover="mouseSobre()"
+      onmouseout="mouseFora()"
+    >
+      Ok
+    </button>
+    <button class="botaoVerde">OK 2</button>
+    <input class="botaoAzul textoAmarelo" type="button" value="OK3" />
+  </body>
+  <script></script>
+</html>

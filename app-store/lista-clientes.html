@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Store</title>
+  </head>
+  <body>
+    <a href="cad-clientes.html"> Ver Cadastro</a>
+
+    <div id="lista"></div>
+  </body>
+
+  <script>
+    //Get do localstorage pela chave
+    let clientes = JSON.parse(localStorage.getItem("clientes"));
+
+    let div = document.querySelector("div");
+    //Imprimindo do Storage
+    clientes.forEach((element) => {
+      div.innerHTML += element.nome + " | ";
+    });
+  </script>
+</html>
